@@ -34,7 +34,7 @@ syslog-forwarder/
 
 ```bash
 # 1. clone project and enter
-git clone https://github.com/yourorg/syslog-forwarder.git
+git clone https://github.com/joeydtaylor/syslog-forwarder.git
 cd syslog-forwarder
 
 # 2. configure destination
