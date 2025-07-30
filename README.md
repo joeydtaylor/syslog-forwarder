@@ -1,4 +1,4 @@
-# Syslog Forwarder (UDP/TCP 514 → TLS 50001) 🔒📡⚙️
+# Syslog Forwarder (UDP/TCP → TLS) 🔒📡⚙️
 
 Containerised rsyslog relay that upgrades plaintext syslog to TLS. 🚀🛡️🧰
 
