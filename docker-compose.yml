@@ -1,0 +1,17 @@
+services:
+  forwarder:
+    build: .
+    container_name: syslog-forwarder
+    restart: unless-stopped
+    cap_add: [ "NET_BIND_SERVICE" ]
+
+    # user‑supplied runtime vars live in .env
+    env_file: .env
+
+    ports:
+      - "514:514/udp"
+      - "514:514"
+
+    # always mount dist/ca.crt; entrypoint decides whether to use it
+    volumes:
+      - ./dist/ca.crt:/etc/ssl/custom/ca.crt:ro

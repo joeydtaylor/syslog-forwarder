@@ -1,0 +1,23 @@
+module(load="imudp")
+input(type="imudp" port="514")
+
+module(load="imtcp")
+input(type="imtcp" port="514")
+
+global(
+  DefaultNetstreamDriver="gtls"
+  DefaultNetstreamDriverCAFile="${CA_BUNDLE}"
+)
+
+template(name="raw" type="string" string="%rawmsg%\n")
+
+action(
+  type="omfwd"
+  target="${REMOTE_HOST}"
+  port="${REMOTE_PORT}"
+  protocol="tcp"
+  StreamDriver="gtls"
+  StreamDriverMode="1"          # TLS enforced
+  StreamDriverAuthMode="anon"   # server‑auth only
+  template="raw"
+)
